@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Next Format Chat</string>
+    <string name="login">Логин</string>
+    <string name="password">Пароль</string>
+    <string name="registration">Регистрация</string>
+    <string name="enter">Войти</string>
+    <string name="auth">Авторизация</string>
+    <string name="wrong_login_password">Неправильный логин или пароль</string>
+    <string name="something_wrong">Что-то пошло не так =(</string>
+    <string name="last_name">Фамилия</string>
+    <string name="first_name">Имя</string>
+    <string name="enter_all">Заполните все поля</string>
+    <string name="exit_from_acc">Выйти из аккаунта</string>
+    <string name="exit_account">Выход из аккаунта</string>
+    <string name="realy_exit_account">Вы действительно хотите выйти из аккаунта?</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="next_format">Next Format</string>
+    <string name="my_profile">Мой профиль</string>
+    <string name="username">UserName</string>
+    <string name="firstname">FirstName</string>
+    <string name="lastname">LastName</string>
+    <string name="users">Пользователи</string>
+</resources>
