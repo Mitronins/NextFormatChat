@@ -21,4 +21,6 @@
     <string name="firstname">FirstName</string>
     <string name="lastname">LastName</string>
     <string name="users">Пользователи</string>
+    <string name="today">Сегодня</string>
+    <string name="yesterday">Вчера</string>
 </resources>
