@@ -7,7 +7,6 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.addd.nextformatchat.*
 import com.addd.nextformatchat.adapters.AdapterMessages
-import com.addd.nextformatchat.model.EventAuth
 import com.addd.nextformatchat.model.EventMessage
 import com.addd.nextformatchat.model.MyMessage
 import com.addd.nextformatchat.model.SendMsg
@@ -28,10 +27,18 @@ class OneChatActivity : AppCompatActivity(), NetworkController.MessagesCallback,
     private lateinit var adapter: AdapterMessages
     private lateinit var myWebSocket: MyWebSocket
     private lateinit var myMessage: MyMessage
+    private lateinit var chatName: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(com.addd.nextformatchat.R.layout.activity_one_chat)
+        setSupportActionBar(toolbarOneChat)
+        if (intent.hasExtra(CHAT_NAME)) {
+            chatName = intent.getStringExtra(CHAT_NAME)
+            title = chatName
+        }
+        toolbarOneChat.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp)
+        toolbarOneChat.setNavigationOnClickListener { finish() }
         NetworkController.registerMessagesCallback(this)
 //        NetworkController.registerSendMsgCallback(this)
         if (intent.hasExtra(ID_CHAT)) {
@@ -44,6 +51,17 @@ class OneChatActivity : AppCompatActivity(), NetworkController.MessagesCallback,
         myWebSocket = MyWebSocket(idUser)
         myWebSocket.registerSocketCallback(this)
         myWebSocket.run()
+        recyclerMessage.addOnLayoutChangeListener({ _, _, _, _, bottom, _, _, _, oldBottom ->
+            if (bottom < oldBottom) {
+                recyclerMessage.post({
+                    if (messages.isNotEmpty()) {
+                        recyclerMessage.smoothScrollToPosition(
+                                recyclerMessage.adapter.itemCount - 1)
+
+                    }
+                })
+            }
+        })
     }
 
 

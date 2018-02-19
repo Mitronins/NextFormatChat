@@ -88,6 +88,7 @@ class ChatsActivity : AppCompatActivity(), NetworkController.ChatsCallback, Adap
     override fun onItemClick(pos: Int) {
         val intent = Intent(applicationContext, OneChatActivity::class.java)
         intent.putExtra(ID_CHAT, chats[pos].id)
+        intent.putExtra(CHAT_NAME, chats[pos].name)
         startActivityForResult(intent, 10)
     }
 

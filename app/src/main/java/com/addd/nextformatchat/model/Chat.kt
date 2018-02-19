@@ -19,4 +19,7 @@ class Chat {
     @SerializedName("last_date")
     @Expose
     val last_date: String? = null
+    @SerializedName("last_message")
+    @Expose
+    val lastMessage: MyMessage? = null
 }

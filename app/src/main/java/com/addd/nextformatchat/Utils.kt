@@ -14,6 +14,7 @@ import java.util.*
 val APP_TOKEN = "token"
 val ID_CHAT = "idChat"
 val ID_USER = "idUser"
+val CHAT_NAME = "chatName"
 val gson = Gson()
 lateinit var myWebSocket: MyWebSocket
 fun AppCompatActivity.toast(s: String) {

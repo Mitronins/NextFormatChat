@@ -30,7 +30,7 @@ class AdapterChats(notesList: ArrayList<Chat>, private val listener: CustomAdapt
                 val viewHolder = holder as ViewHolder
                 var chat = mChatList[position]
                 viewHolder.nameChat.text = chat.name
-                viewHolder.lastMessage.text = "Последнее сообщение"
+                viewHolder.lastMessage.text = chat.lastMessage?.text
                 val time = formatTime(chat.last_date.toString())
                 val calendarMessage: Calendar = GregorianCalendar(
                         time.substring(0, 4).toInt(), time.substring(5, 7).toInt() - 1,
@@ -53,6 +53,7 @@ class AdapterChats(notesList: ArrayList<Chat>, private val listener: CustomAdapt
                 if (!isDateAdded) {
                     viewHolder.time.text = time.substring(8, 10) + "." + time.substring(5, 7) + "." + time.substring(2, 4)
                 }
+
 
 
             }
